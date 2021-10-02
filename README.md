@@ -8,6 +8,16 @@ The [spec for `.czml` files seems to be maintained here.](https://github.com/Ana
 
 ## Use
 
+### Import the Module
+
+```
+import (
+	...
+
+	"github.com/cconcannon/czml"
+)
+```
+
 ### Initialize a CZML data structure
 
 `c := czml.CreateDocument("name")`
@@ -44,4 +54,4 @@ The documentation about value formats for many of the `.czml` properties, especi
 
 ## Contributing
 
-Yes, please. I don't do development full-time so it might be a few days before I respond to PR's, but I really appreciate them! Feel free to fork and develop on your own, too... I'm releasing this with the MIT license very intentionally.
+Yes, please. 
