@@ -23,3 +23,26 @@ type RgbaValue []int
 // or seconds since epoch.
 // https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/RgbafValue
 type RgbafValue []float32
+
+func translateColor(color string) (rgba RgbaValue) {
+	switch color {
+	case "red":
+		rgba = []int{255, 0, 0, 255}
+	case "green":
+		rgba = []int{0, 255, 0, 255}
+	case "blue":
+		rgba = []int{0, 0, 255, 255}
+	case "purple":
+		rgba = []int{128, 0, 128, 255}
+	case "yellow":
+		rgba = []int{255, 255, 0, 255}
+	case "white":
+		rgba = []int{255, 255, 255, 255}
+	case "black":
+		rgba = []int{0, 0, 0, 255}
+	default:
+		rgba = []int{128, 128, 128, 255}
+	}
+
+	return rgba
+}

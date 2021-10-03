@@ -29,13 +29,12 @@ func MarshalIndent(c Czml, prefix, indent string) ([]byte, error) {
 }
 
 // CreateCzml initializes .czml file data with the "document" packet as the first packet
-func CreateCzml(name string) Czml {
+func (c *Czml) InitializeDocument(name string) {
 	var packet Packet
 	packet.Id = "document"
 	packet.Name = name
 	packet.Version = "1.0"
-
-	return Czml{[]Packet{packet}}
+	c.AddPacket(packet)
 }
 
 // AddPacket adds a Packet to the .czml document data
