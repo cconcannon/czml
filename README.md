@@ -10,7 +10,7 @@ The [spec for `.czml` files seems to be maintained here.](https://github.com/Ana
 
 ### Import the Module
 
-```
+```go
 import (
 	...
 
@@ -20,27 +20,33 @@ import (
 
 ### Initialize a CZML data structure
 
-`c := czml.CreateDocument("name")`
+```go
+var c czml.Czml
 
-### Add CZML Packets
+c.InitializeDocument("name")
+```
 
-`c.AddPacket(packet)`
+### Create & Add CZML Packets to CZML data
+
+```go
+packet := czml.CreateEmptyPacket("id", "name")
+
+c.AddPacket(packet)
+```
 
 > **Note: Packet field types and sub-types are available, but constructors and schema-checking are not, so you must use some other means to validate your packet schema**
 
 ### Create JSON binary
 
-`json, err := czml.Marshal(c)`
+```go
+json, err := czml.Marshal(c)
+```
 
 ## About the CZML format
 
 - `.czml` files are valid `.json`
 - a `.czml` file is an array of `Packet` objects
 - the first `Packet` in a `.czml` file must be the `document` Packet
-
-To that extent, `v0.0.1` of this module provides the `CreateDocument()` and `AddPacket()` methods which will help construct valid `.czml` files.
-
-`v0.0.1` of this module also implements the `UnMarshal()`, `Marshal()`, and `MarshalIndent()` methods via the Go `encoding/json` package.
 
 ## Opinions in Implementation
 

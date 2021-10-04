@@ -28,7 +28,7 @@ func MarshalIndent(c Czml, prefix, indent string) ([]byte, error) {
 	return json.MarshalIndent(&c.Packets, prefix, indent)
 }
 
-// CreateCzml initializes .czml file data with the "document" packet as the first packet
+// InitializeDocument initializes .czml file data with the "document" packet as the first packet
 func (c *Czml) InitializeDocument(name string) {
 	var packet Packet
 	packet.Id = "document"
