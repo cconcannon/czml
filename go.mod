@@ -16,3 +16,6 @@ retract v0.0.4
 
 // pkg.go.dev does not remove package cache without explicit retraction
 retract v0.0.5
+
+// pkg.go.dev does not remove package cache without explicit retraction
+retract v0.0.6
