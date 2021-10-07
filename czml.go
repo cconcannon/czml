@@ -2,6 +2,7 @@ package czml
 
 import (
 	"encoding/json"
+	"errors"
 )
 
 // Czml is a .czml file, which is a valid JSON document that contains an array of packets
@@ -40,4 +41,18 @@ func (c *Czml) InitializeDocument(name string) {
 // AddPacket adds a Packet to the .czml document data
 func (c *Czml) AddPacket(p Packet) {
 	c.Packets = append(c.Packets, p)
+}
+
+func (c *Czml) AddClock(interval, currentTime string, multiplier float64) error {
+	if len(c.Packets) == 0 || c.Packets[0].Id != "document" {
+		return errors.New("initialize document before adding properties")
+	}
+
+	c.Packets[0].Clock = &Clock{
+		Interval:    interval,
+		CurrentTime: currentTime,
+		Multiplier:  &multiplier,
+	}
+
+	return nil
 }

@@ -6,7 +6,12 @@ package czml
 // arranged as [Time, Longitude, Latitude, Height, Time, Longitude, Latitude, Height, ...], where
 // Time is an ISO 8601 date and time string or seconds since epoch
 // https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/CartographicDegreesValue
-type CartographicDegreesValue []float64
+type CartographicDegreesValue struct {
+	Lat    float64
+	Lon    float64
+	Height float64
+	Time   string
+}
 
 // CartographicRadiansValue is a geodetic, WGS84 position specified as [Longitude, Latitude, Height]
 // where Longitude and Latitude are in radians and Height is in meters. If the array has three

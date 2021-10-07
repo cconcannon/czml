@@ -7,7 +7,7 @@ type Position struct {
 	ReferenceFrame      string                    `json:"referenceFrame,omitempty"`
 	Cartesian           *Cartesian3Value          `json:"cartesian,omitempty"`
 	CartographicRadians *CartographicRadiansValue `json:"cartographicRadians,omitempty"`
-	CartographicDegrees *CartographicDegreesValue `json:"cartographicDegrees,omitempty"`
+	CartographicDegrees []string                  `json:"cartographicDegrees,omitempty"`
 	CartesianVelocity   *Cartesian3VelocityValue  `json:"cartesianVelocity,omitempty"`
 	Reference           ReferenceValue            `json:"reference,omitempty"`
 }

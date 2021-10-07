@@ -5,7 +5,7 @@ package czml
 // https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/Billboard
 type Billboard struct {
 	Show                       *bool                     `json:"show,omitempty"`
-	Image                      *Uri                      `json:"image,omitempty"`
+	Image                      string                    `json:"image"`
 	Scale                      *float64                  `json:"scale,omitempty"`
 	PixelOffset                *PixelOffset              `json:"pixelOffset,omitempty"`
 	EyeOffset                  *EyeOffset                `json:"eyeOffset,omitempty"`

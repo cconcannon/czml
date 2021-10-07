@@ -36,7 +36,7 @@ type PolylineVolume struct {
 	DistanceDisplayCondition *DistanceDisplayCondition `json:"distanceDisplayCondition,omitempty"`
 }
 
-// AddColor adds a solid-colored line of color specified by rgba value
+// UpdateColor adds or updates a solid-colored line specified by rgba value
 func (p *Polyline) UpdateColor(rgba []int) {
 	c := Color{Rgba: rgba}
 	s := SolidColorMaterial{Color: &c}
@@ -44,11 +44,12 @@ func (p *Polyline) UpdateColor(rgba []int) {
 	p.Material = &m
 }
 
+// AddPoint adds a geographical point
 func (p *Polyline) AddPoint(lat, lon, ele float64) {
 	if p.Positions == nil {
 		p.Positions = &PositionList{}
 	} else if p.Positions.CartographicDegrees == nil {
-		p.Positions.CartographicDegrees = CartographicDegreesValue{}
+		p.Positions.CartographicDegrees = []float64{}
 	}
 
 	p.Positions.CartographicDegrees = append(p.Positions.CartographicDegrees, lon, lat, ele)
